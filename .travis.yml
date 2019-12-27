@@ -15,5 +15,8 @@ after_success:
   - docker build -t injectit/multi-worker ./worker
   # Login to docker hub
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-
   # Push images to hub.docker.com
+  - docker push injectit/multi-client
+  - docker push injectit/multi-nginx
+  - docker push injectit/multi-server
+  - docker push injectit/multi-worker
